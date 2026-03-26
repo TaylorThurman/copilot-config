@@ -52,7 +52,8 @@ Only proceed to Step 3 when you're confident you understand the current state we
 3. ⛔ **MANDATORY STOP** — Present the phase structure and ask: "Does this phasing make sense?" End your response here. Do not write the detailed plan until the user confirms.
 
 ### Step 5: Write Plan
-Save to `docs/plans/YYYY-MM-DD-description.md` with:
+
+⚠️ **You MUST create a file.** This is not optional. Run `mkdir -p docs/plans` first, then save to `docs/plans/YYYY-MM-DD-description.md` with:
 - Overview, current state, desired end state, out-of-scope items
 - Final acceptance criteria
 - Per-phase: A/Cs addressed, test cases (Given/When/Then), test code, implementation code, success criteria (automated + manual), pause point

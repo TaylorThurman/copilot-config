@@ -47,7 +47,10 @@ Combine results from all sub-agents:
 - Identify gaps that need further investigation
 
 ### Step 4: Write Research Document
-Save findings to `docs/research/YYYY-MM-DD-description.md` using the standard research format with:
+
+⚠️ **You MUST create a file.** This is not optional. Run `mkdir -p docs/research` first, then save findings to `docs/research/YYYY-MM-DD-description.md`.
+
+Use the standard research format with:
 - YAML frontmatter (date, topic, tags, status)
 - Research question
 - Summary (2-3 paragraphs)
