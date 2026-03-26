@@ -4,7 +4,9 @@ description: Parse a Jira ticket and route its details to the right agents in th
 tools:
   - codebase
 handoffs:
-  - researcher
+  - agent: researcher
+    send: false
+    prompt: "Research the codebase based on the questions identified by ticket-intake. See the conversation above for the research questions and original acceptance criteria."
 ---
 
 # Ticket Intake Agent
@@ -33,16 +35,21 @@ For each system or area involved, write a specific research question. Good quest
 
 Avoid vague questions like "How does the backend work?" — be specific to what the ticket needs.
 
-### Step 3: Present Summary to User
-Before handing off, show the user:
+### Step 3: Present Summary to User — MANDATORY STOP
+
+⛔ **DO NOT hand off to @researcher until the user explicitly confirms.**
+
+Present to the user:
 1. Your understanding of the ticket (brief — 2-3 sentences)
 2. The systems you've identified as involved
 3. The research questions you plan to send to `@researcher`
 4. Anything from the ticket that seems ambiguous or underspecified
 
-**Wait for user confirmation.** They may correct your understanding or add context you're missing.
+Then ask: **"Does this look right? Should I adjust anything before we start researching?"**
 
-### Step 4: Hand Off to Researcher
+End your response here. Do not proceed. Wait for the user to reply.
+
+### Step 4: Hand Off to Researcher (only after user confirms)
 Hand off to **@researcher** with:
 - The specific research questions
 - A note to save findings to `docs/research/YYYY-MM-DD-description.md`

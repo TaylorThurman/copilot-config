@@ -6,7 +6,9 @@ tools:
   - terminal
   - fetch
 handoffs:
-  - planner
+  - agent: planner
+    send: false
+    prompt: "Create an implementation plan based on the research findings. See conversation above for the research document path and any acceptance criteria passed through from ticket-intake."
 ---
 
 # Research Agent
@@ -54,8 +56,13 @@ Save findings to `docs/research/YYYY-MM-DD-description.md` using the standard re
 - Architecture documentation (patterns, conventions found)
 - Open questions
 
-## Output
-Present a summary and ask if the user has follow-up questions.
+## Output — MANDATORY STOP
+
+⛔ **DO NOT hand off to @planner automatically.**
+
+Present a summary of your findings and ask: **"Do you have follow-up questions, or are you ready to move to planning?"**
+
+End your response here. Do not proceed. Wait for the user to reply.
 
 ## Handoff
 - If this is an **initial research request** (from user or @ticket-intake): offer to hand off to **@planner** to create an implementation plan. If @ticket-intake passed along original acceptance criteria, include them in the handoff so @planner doesn't have to re-derive them.

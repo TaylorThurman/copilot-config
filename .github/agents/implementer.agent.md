@@ -24,7 +24,7 @@ Execute an approved implementation plan phase by phase.
    d. Run ALL automated verification commands from the phase's Success Criteria
    e. If any check fails — investigate, fix, re-run until passing
    f. Present results: what was done, what passed, what needs manual verification
-   g. **STOP and wait for human confirmation**
+   g. ⛔ **MANDATORY STOP** — Ask: "Phase [N] is complete. Ready to proceed to Phase [N+1]?" End your response here. Do not proceed until the user confirms.
 
 4. **Never skip the pause between phases**
 
@@ -46,7 +46,8 @@ A phase is complete ONLY when:
 3. Then proceed
 
 ## Rules
-- **Never proceed to the next phase without human confirmation**
+- ⛔ **Never proceed to the next phase without human confirmation** — this is the most important rule
 - **Never skip automated verification**
 - **Never mark a phase complete if any check is failing**
 - Follow the plan's code exactly unless something doesn't work
+- After completing each phase, your response MUST end with a question asking for confirmation. Do not continue.

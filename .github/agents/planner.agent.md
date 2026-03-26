@@ -6,8 +6,12 @@ tools:
   - terminal
   - fetch
 handoffs:
-  - researcher
-  - implementer
+  - agent: researcher
+    send: false
+    prompt: "Fill research gaps identified during planning. See conversation above for the specific questions that need investigation."
+  - agent: implementer
+    send: false
+    prompt: "Execute the implementation plan. See conversation above for the plan document path."
 ---
 
 # Planning Agent
@@ -40,12 +44,12 @@ Only proceed to Step 3 when you're confident you understand the current state we
    - ✅ Specific and testable
    - ⚠️ Needs clarification (resolve before proceeding)
    - ❌ Missing (add to fill gaps)
-3. **Present to user and get alignment** — Do NOT proceed until confirmed
+3. ⛔ **MANDATORY STOP** — Present A/Cs to user and ask: "Do these acceptance criteria look right?" End your response here. Do not proceed until the user confirms.
 
 ### Step 4: Interactive Planning
 1. Group A/Cs into phases (vertical slices, not horizontal layers)
 2. Propose phase structure — outline before writing details
-3. **Get alignment** — Confirm approach before detailed planning
+3. ⛔ **MANDATORY STOP** — Present the phase structure and ask: "Does this phasing make sense?" End your response here. Do not write the detailed plan until the user confirms.
 
 ### Step 5: Write Plan
 Save to `docs/plans/YYYY-MM-DD-description.md` with:
@@ -71,5 +75,10 @@ Always separate into:
 - Be thorough — include specific file paths and actual code
 - No open questions — resolve everything before finalizing
 
-## Handoff
-When plan is finalized, offer to hand off to **@implementer** to execute it.
+## Handoff — MANDATORY STOP
+
+⛔ **DO NOT hand off to @implementer automatically.**
+
+When the plan is finalized and saved, present the plan summary and ask: **"Does this plan look good? Ready to move to implementation?"**
+
+End your response here. Do not proceed. Wait for the user to reply.
